@@ -1,0 +1,25 @@
+%p#notice= notice
+
+%p
+  %b Nombre:
+  = @lector.nombre
+
+%p
+  %b Primer apellido:
+  = @lector.primer_apellido
+
+%p
+  %b Segundo apellido:
+  = @lector.segundo_apellido
+
+%p
+  %b Grado:
+  = @lector.grado
+
+%p
+  %b Grupo:
+  = @lector.grupo
+
+= link_to 'Editar', edit_lector_path(@lector)
+\|
+= link_to 'Listado', lectores_path

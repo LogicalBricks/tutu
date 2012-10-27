@@ -1,0 +1,31 @@
+= form_for(@libro) do |f|
+  = render 'error_messages', target: @libro
+
+  .field
+    = f.label :titulo
+    %br
+    = f.text_field :titulo
+  .field
+    = f.label :autor
+    %br
+    = f.text_field :autor
+  .field
+    = f.label :editorial
+    %br
+    = f.text_field :editorial
+  .field
+    = f.label :isbn
+    %br
+    = f.text_field :isbn
+  .field
+    = f.label :descripcion
+    %br
+    = f.text_area :descripcion
+  .field
+    = f.label :cantidad
+    %br
+    = f.text_field :cantidad
+
+
+  .actions
+    = f.submit

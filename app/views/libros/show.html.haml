@@ -1,0 +1,21 @@
+%p#notice= notice
+
+%p
+  %b Titulo:
+  = @libro.titulo
+
+%p
+  %b Author:
+  = @libro.autor
+
+%p
+  %b Editorial:
+  = @libro.editorial
+
+%p
+  %b Isbn:
+  = @libro.isbn
+
+= link_to 'Editar', edit_libro_path(@libro)
+\|
+= link_to 'Listado', libros_path

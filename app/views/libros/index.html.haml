@@ -1,0 +1,31 @@
+%h1 Listado de Libros
+
+- if @libros.any?
+  %table
+    %thead
+      %tr
+        %th Titulo
+        %th Autor
+        %th Editorial
+        %th Isbn
+        %th
+        %th
+        %th
+
+    %tbody
+      - @libros.each do |libro|
+        %tr
+          %td= libro.titulo
+          %td= libro.autor
+          %td= libro.editorial
+          %td= libro.isbn
+          %td= link_to 'Mostrar', libro
+          %td= link_to 'Editar', edit_libro_path(libro)
+          %td= link_to 'Eliminar', libro, method: :delete, data: { confirm: '¿Estás seguro?' }
+- else
+  %div
+    %h3 No se encontraron Libros
+
+%br
+
+= link_to "Nuevo Libro", new_libro_path

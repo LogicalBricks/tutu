@@ -1,0 +1,30 @@
+= form_for(@lector) do |f|
+  = render 'error_messages', target: @lector
+
+  .field
+    = f.label :nombre
+    %br
+    = f.text_field :nombre
+  .field
+    = f.label :primer_apellido
+    %br
+    = f.text_field :primer_apellido
+  .field
+    = f.label :segundo_apellido
+    %br
+    = f.text_field :segundo_apellido
+  .field
+    = f.label :grado
+    %br
+    = f.text_field :grado
+  .field
+    = f.label :grupo
+    %br
+    = f.text_field :grupo
+  .field
+    = f.label :fecha_nacimiento
+    %br
+    = f.text_field :fecha_nacimiento
+
+  .actions
+    = f.submit
