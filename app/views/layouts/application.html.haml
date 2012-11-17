@@ -1,0 +1,35 @@
+!!! 5
+%html
+  %head
+    %title
+      Tutu 
+    %meta{ charset: 'utf-8' }
+    %meta{ 'http-equiv' => 'X-UA-Compatible', content: 'IE=edge, chrome=1' }
+    %meta{ name: 'description', content: 'LogicalBricks' }
+    %meta{ name: 'author', content: 'LogicalBricks' }
+    %meta{ name: 'viewport', content: 'width=device-width' }
+    = stylesheet_link_tag 'application'
+    = javascript_include_tag 'application' 
+    = csrf_meta_tags
+  %body
+    .navbar.navbar-fixed-top
+      .navbar-inner
+        .container
+          %a.btn.btn-navbar{'data-toggle'=>'collapse', 'data-target'=>'.nav-collapse'}
+            %span.icon-bar
+            %span.icon-bar
+            %span.icon-bar
+            %a.brand{href:"/"}Tutu
+          %div.nav-collapse
+            = tabs
+  .container
+    - if notice 
+      .alert.alert-success
+        %button.close{'data-dismiss'=>'alert'}×
+        = notice
+    - if alert 
+      .alert.alert-error
+        %button.close{'data-dismiss'=>'alert'}×
+        = alert 
+    = yield
+
