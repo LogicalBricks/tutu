@@ -1,31 +1,31 @@
-= form_for(@libro) do |f|
+= form_for @libro,html:{ class: 'form-horizontal'} do |f|
   = render 'error_messages', target: @libro
 
-  .field
-    = f.label :titulo
-    %br
-    = f.text_field :titulo
-  .field
-    = f.label :autor
-    %br
-    = f.text_field :autor
-  .field
-    = f.label :editorial
-    %br
-    = f.text_field :editorial
-  .field
-    = f.label :isbn
-    %br
-    = f.text_field :isbn
-  .field
-    = f.label :descripcion
-    %br
-    = f.text_area :descripcion
-  .field
-    = f.label :cantidad
-    %br
-    = f.text_field :cantidad
+  .control-group
+    = f.label :titulo, class: 'control-label'
+    .controls
+      = f.text_field :titulo
+  .control-group
+    = f.label :autor, class: 'control-label'
+    .controls
+      = f.text_field :autor
+  .control-group
+    = f.label :editorial, class: 'control-label'
+    .controls
+      = f.text_field :editorial
+  .control-group
+    = f.label :isbn, class: 'control-label'
+    .controls
+      = f.text_field :isbn
+  .control-group
+    = f.label :descripcion, class: 'control-label'
+    .controls
+      = f.text_area :descripcion
+  .control-group
+    = f.label :cantidad, class: 'control-label'
+    .controls
+      = f.text_field :cantidad
 
 
-  .actions
-    = f.submit
+  .form-actions
+    = f.submit class: 'btn btn-primary'

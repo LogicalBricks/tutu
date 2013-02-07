@@ -1,7 +1,13 @@
 Tutu::Application.routes.draw do
-  resources :lectores
+  resources :prestamos
 
-  resources :libros
+  resources :lectores do
+    get :search, on: :collection
+  end
+
+  resources :libros do
+    get :search, on: :collection
+  end
 
   devise_for :usuarios
 

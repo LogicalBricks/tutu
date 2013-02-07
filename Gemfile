@@ -18,18 +18,21 @@ group :assets do
   gem 'therubyracer', :platforms => :ruby
 
   gem 'uglifier', '>= 1.0.3'
+
+  gem 'ember-rails'
+  gem 'hamlbars', github: 'jamesotron/hamlbars'
 end
 
 gem 'lbs-config', github: 'LogicalBricks/lbs-config'
 gem 'rieles', github: 'LogicalBricks/rieles'
 
 gem 'haml-rails'
-
 gem 'jquery-rails'
 gem 'jquery-datatables-rails', github: 'rweng/jquery-datatables-rails'
 gem 'jquery-ui-rails'
 gem 'cancan'
 gem 'devise'
+gem "select2-rails"
 
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 
@@ -61,6 +64,7 @@ gem 'rmagick'
 gem 'draper'
 
 gem 'barby'
+
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

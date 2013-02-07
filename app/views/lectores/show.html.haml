@@ -1,25 +1,10 @@
-%p#notice= notice
+%h1
+  = "#{@lector.nombre} #{@lector.primer_apellido} #{@lector.segundo_apellido} - (#{@lector.grado} #{@lector.grupo})"
 
-%p
-  %b Nombre:
-  = @lector.nombre
+%h2
+  = "#{edad(@lector)} años"
 
-%p
-  %b Primer apellido:
-  = @lector.primer_apellido
-
-%p
-  %b Segundo apellido:
-  = @lector.segundo_apellido
-
-%p
-  %b Grado:
-  = @lector.grado
-
-%p
-  %b Grupo:
-  = @lector.grupo
-
-= link_to 'Editar', edit_lector_path(@lector)
-\|
-= link_to 'Listado', lectores_path
+.form-actions
+  .btn-group
+    = link_to 'Editar', edit_lector_path(@lector), class: 'btn'
+    = link_to 'Listado', lectores_path, class: 'btn'

@@ -80,4 +80,14 @@ class LibrosController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+ def search
+   @libros = Libro.order('titulo').
+      finder(params[:q])#.page(params[:page]).per(params[:per])
+    respond_to do |format|
+      format.json { render json: @libros.to_json}
+    end
+  end
+
 end
+

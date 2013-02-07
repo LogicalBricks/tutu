@@ -1,30 +1,21 @@
-= form_for(@lector) do |f|
+= form_for @lector,html:{ class:'form-horizontal'} do |f|
   = render 'error_messages', target: @lector
+  .control-group
+    = f.label :nombre, class: 'control-label'
+    .controls 
+      = f.text_field :nombre, placeholder: 'Nombre(s)'
+      = f.text_field :primer_apellido, placeholder: 'Primer Apellido'
+      = f.text_field :segundo_apellido, placeholder: 'Segundo Apellido'
+  .control-group
+    = f.label 'Grado/Grupo', class: 'control-label'
+    .controls 
+      = f.text_field :grado, class: 'input-mini'
+      \/
+      = f.text_field :grupo, class: 'input-mini'
+  .control-group
+    = f.label :fecha_nacimiento, class: 'control-label'
+    .controls
+      = f.text_field :fecha_nacimiento
 
-  .field
-    = f.label :nombre
-    %br
-    = f.text_field :nombre
-  .field
-    = f.label :primer_apellido
-    %br
-    = f.text_field :primer_apellido
-  .field
-    = f.label :segundo_apellido
-    %br
-    = f.text_field :segundo_apellido
-  .field
-    = f.label :grado
-    %br
-    = f.text_field :grado
-  .field
-    = f.label :grupo
-    %br
-    = f.text_field :grupo
-  .field
-    = f.label :fecha_nacimiento
-    %br
-    = f.text_field :fecha_nacimiento
-
-  .actions
-    = f.submit
+  .form-actions
+    = f.submit class: 'btn btn-primary'

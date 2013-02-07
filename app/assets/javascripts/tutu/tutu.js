@@ -1,0 +1,1 @@
+Tutu = Ember.Application.create();

@@ -43,6 +43,7 @@ ActiveRecord::Schema.define(:version => 20121026003634) do
     t.integer  "libro_id"
     t.date     "fecha_prestamo"
     t.date     "fecha_entrega"
+    t.boolean  "perdida"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
   end

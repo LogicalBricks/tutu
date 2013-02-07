@@ -5,6 +5,7 @@ class CreatePrestamos < ActiveRecord::Migration
       t.references :libro
       t.date :fecha_prestamo
       t.date :fecha_entrega
+      t.boolean :perdida
       t.timestamps
     end
   end

@@ -44,7 +44,7 @@ class LectoresController < ApplicationController
 
     respond_to do |format|
       if @lector.save
-        format.html { redirect_to @lector, notice: 'Lector was successfully created.' }
+        format.html { redirect_to @lector, notice: 'El nuevo lector se ha guardado correctamente.' }
         format.json { render json: @lector, status: :created, location: @lector }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class LectoresController < ApplicationController
 
     respond_to do |format|
       if @lector.update_attributes(params[:lector])
-        format.html { redirect_to @lector, notice: 'Lector was successfully updated.' }
+        format.html { redirect_to @lector, notice: 'Las modificaciones al Lector se han guardado correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -78,6 +78,14 @@ class LectoresController < ApplicationController
     respond_to do |format|
       format.html { redirect_to lectores_url }
       format.json { head :no_content }
+    end
+  end
+  
+  def search
+   @lectores = Lector.order('primer_apellido').
+      finder(params[:q])#.page(params[:page]).per(params[:per])
+    respond_to do |format|
+      format.json { render json: @lectores.to_json}
     end
   end
 end

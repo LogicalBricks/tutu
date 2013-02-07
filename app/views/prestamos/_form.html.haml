@@ -1,0 +1,25 @@
+= form_for(@prestamo, html: { class: 'form-horizontal'}) do |f|
+  = render 'error_messages', target: @prestamo
+
+  .control-group
+    = f.label :libro_id, 'Libro', class: 'control-label'
+    .controls
+      = f.hidden_field :libro_id, class: 'select2 ajax span2', data: { source: search_libros_path }
+      = @prestamo.libro.titulo if @prestamo.libro
+  .control-group
+    = f.label :lector_id, 'Lector', class: 'control-label'
+    .controls
+      = f.hidden_field :lector_id, class: 'select2 ajax span2', data: { source: search_lectores_path }
+      = @prestamo.lector.titulo if @prestamo.libro
+  .control-group
+    = f.label :fecha_prestamo,  class: 'control-label'
+    .controls
+      = f.text_field :fecha_prestamo
+
+  .control-group
+    = f.label :fecha_entrega,  class: 'control-label'
+    .controls
+      = f.text_field :fecha_entrega
+
+  .form-actions
+    = f.submit class: 'btn btn-primary'

@@ -1,7 +1,7 @@
-%h1 Editar Lector
+%h1 Modificar datos del Lector
 
 = render 'form'
 
-= link_to 'Mostrar', @lector
-\|
-= link_to 'Listado', lectores_path
+.btn-group
+  = link_to 'Mostrar', @lector, class: 'btn'
+  = link_to 'Listado', lectores_path, class: 'btn'

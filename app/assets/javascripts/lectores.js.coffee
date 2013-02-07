@@ -7,4 +7,9 @@ $ ->
     'sDom': "<'row-fluid'<'span6'l><'span6'f>r>t<'row-fluid'<'span6'i><'span6'p>>", 
     'sPaginationType': 'bootstrap',
     'oLanguage': dataTablesES
+  $.datepicker.setDefaults( $.datepicker.regional[ 'es' ] )
+  $('#lector_fecha_nacimiento').datepicker
+    dateFormat: 'yy-mm-dd'
+    changeMonth: true
+    changeYear: true
 

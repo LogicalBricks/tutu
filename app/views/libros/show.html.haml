@@ -1,11 +1,7 @@
-%p#notice= notice
-
-%p
-  %b Titulo:
+%h1
   = @libro.titulo
 
-%p
-  %b Author:
+%h2
   = @libro.autor
 
 %p
@@ -16,6 +12,11 @@
   %b Isbn:
   = @libro.isbn
 
-= link_to 'Editar', edit_libro_path(@libro)
-\|
-= link_to 'Listado', libros_path
+%h1
+  = @libro.cantidad
+
+.form-actions
+  .btn-group
+    = link_to 'Editar', edit_libro_path(@libro), class: 'btn'
+    = link_to 'Listado', libros_path, class: 'btn'
+

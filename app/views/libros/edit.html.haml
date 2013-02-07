@@ -1,7 +1,8 @@
-%h1 Editar Libro
+%h1 Modificar datos del Libro
 
 = render 'form'
 
-= link_to 'Mostrar', @libro
-\|
-= link_to 'Listado', libros_path
+.btn-group
+  = link_to 'Mostrar', @libro, class: 'btn'
+  = link_to 'Listado', libros_path, class: 'btn'
+

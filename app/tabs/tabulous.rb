@@ -59,6 +59,7 @@ Tabulous.setup do |config|
       #--------------------------------------------------------------------------------------------------#
       [    :lectores_tab    ,    'Lectores'      ,    lectores_path    ,    true        ,    true        ],
       [    :libros_tab      ,    'Libros'        ,    libros_path      ,    true        ,    true        ],
+      [    :prestamos_tab      ,    'Prestamos'        ,    prestamos_path      ,    true        ,    true        ],
       #--------------------------------------------------------------------------------------------------#
       #    TAB NAME         |    DISPLAY TEXT    |    PATH             |    VISIBLE?    |    ENABLED?    #
       #--------------------------------------------------------------------------------------------------#
@@ -87,6 +88,7 @@ Tabulous.setup do |config|
       [    :lectores     ,    :all_actions    ,    :lectores_tab    ],
       [    :libros       ,    :all_actions    ,    :libros_tab      ],
       [    :libros       ,    :all_actions    ,    :libros_tab      ],
+      [    :prestamos    ,    :all_actions    ,    :prestamos_tab  ],
       #-------------------------------------------------------------#
       #    CONTROLLER    |    ACTION          |    TAB              #
       #-------------------------------------------------------------#

@@ -12,8 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require datatables_config
 //= require dataTables/jquery.dataTables
 //= require dataTables/jquery.dataTables.bootstrap
-//= require_tree .
-//= require twitter/bootstrap
+//= require twitter/bootstrap/
+//= require select2
+//= require common
+//= require lectores 
+//= require libros
+//= require prestamos
+
