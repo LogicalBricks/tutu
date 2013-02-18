@@ -22,4 +22,5 @@
 //= require lectores 
 //= require libros
 //= require prestamos
+//= require webcam
 

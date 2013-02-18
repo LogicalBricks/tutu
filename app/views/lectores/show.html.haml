@@ -1,5 +1,9 @@
 %h1
-  = "#{@lector.nombre} #{@lector.primer_apellido} #{@lector.segundo_apellido} - (#{@lector.grado} #{@lector.grupo})"
+  = "#{@lector.nombre_completo} - (#{@lector.grado} #{@lector.grupo})"
+
+- if @lector.foto
+  = image_tag @lector.foto_url, class: 'img-polaroid' 
+
 
 %h2
   = "#{edad(@lector)} años"

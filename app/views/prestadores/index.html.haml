@@ -1,0 +1,25 @@
+%h1 Listado de Prestadores
+
+- if @prestadores.any?
+  %table
+    %thead
+      %tr
+        %th Nombre
+        %th
+
+    %tbody
+      - @prestadores.each do |prestador|
+        %tr
+          %td= prestador.nombre
+          %td
+            .btn-group
+              = link_to 'Mostrar', prestador, class: 'btn'
+              = link_to 'Editar', edit_prestador_path(prestador), class: 'btn'
+              = link_to 'Eliminar', prestador, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn'
+- else
+  %div
+    %h3 No se encontraron Prestadores
+
+%br
+
+= link_to "Nuevo Prestador", new_prestador_path, class: 'btn btn-primary'

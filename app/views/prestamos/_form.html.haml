@@ -10,7 +10,7 @@
     = f.label :lector_id, 'Lector', class: 'control-label'
     .controls
       = f.hidden_field :lector_id, class: 'select2 ajax span2', data: { source: search_lectores_path }
-      = @prestamo.lector.titulo if @prestamo.libro
+      = @prestamo.lector.nombre_completo if @prestamo.libro
   .control-group
     = f.label :fecha_prestamo,  class: 'control-label'
     .controls

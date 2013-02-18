@@ -1,0 +1,9 @@
+= form_for(@prestador) do |f|
+  = render 'error_messages', target: @prestador
+
+  .field
+    = f.label :nombre
+    %br
+    = f.text_field :nombre
+  .actions
+    = f.submit class: 'btn btn-primary'

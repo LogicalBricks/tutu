@@ -80,12 +80,33 @@ class LectoresController < ApplicationController
       format.json { head :no_content }
     end
   end
-  
+
+  def foto
+    @lector = Lector.find(params[:id])
+  end
+
+  def upload
+    @lector = Lector.find(params[:id])
+    File.open(upload_path, 'wb') do |f|
+      f.write request.raw_post
+    end
+    @lector.foto = File.open(upload_path)
+    @lector.save
+    render :text => "ok"
+  end
+
   def search
-   @lectores = Lector.order('primer_apellido').
+    @lectores = Lector.order('primer_apellido').
       finder(params[:q])#.page(params[:page]).per(params[:per])
     respond_to do |format|
       format.json { render json: @lectores.to_json}
     end
   end
+
+  private
+
+  def upload_path # is used in upload and create
+    File.join(Rails.root, 'tmp', 'photo.jpg')
+  end
+
 end

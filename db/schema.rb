@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121026003634) do
+ActiveRecord::Schema.define(:version => 20130218023553) do
 
   create_table "lectores", :force => true do |t|
     t.string   "nombre"
@@ -23,6 +23,7 @@ ActiveRecord::Schema.define(:version => 20121026003634) do
     t.boolean  "atencion_usaer"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
+    t.string   "foto"
   end
 
   create_table "libros", :force => true do |t|
@@ -38,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20121026003634) do
     t.datetime "updated_at",  :null => false
   end
 
+  create_table "prestadores", :force => true do |t|
+    t.string   "nombre"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
   create_table "prestamos", :force => true do |t|
     t.integer  "lector_id"
     t.integer  "libro_id"
@@ -46,6 +53,12 @@ ActiveRecord::Schema.define(:version => 20121026003634) do
     t.boolean  "perdida"
     t.datetime "created_at",     :null => false
     t.datetime "updated_at",     :null => false
+  end
+
+  create_table "tests", :force => true do |t|
+    t.string   "campo"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "usuarios", :force => true do |t|

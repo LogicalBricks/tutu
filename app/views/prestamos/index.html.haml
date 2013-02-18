@@ -3,6 +3,8 @@
 %table#prestamos.table.table-stripped
   %thead
     %tr
+      %th Título del libro
+      %th Lector 
       %th
       %th
       %th
@@ -10,11 +12,14 @@
   %tbody
     - @prestamos.each do |prestamo|
       %tr
+        %td= prestamo.libro.titulo
+
+        %td= prestamo.lector.nombre_completo
         %td
           .btn-group
             = link_to 'Mostrar', prestamo, class: 'btn' 
-            %td= link_to 'Editar', edit_prestamo_path(prestamo), class: 'btn'
-            %td= link_to 'Eliminar', prestamo, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger'
+            = link_to 'Editar', edit_prestamo_path(prestamo), class: 'btn'
+            = link_to 'Eliminar', prestamo, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger'
 
 .form-actions
   = link_to "Nuevo Prestamo", new_prestamo_path, class: 'btn btn-primary'

@@ -1,7 +1,11 @@
 Tutu::Application.routes.draw do
+  resources :prestadores
+
   resources :prestamos
 
   resources :lectores do
+    get :foto, on: :member
+    post :upload, on: :member
     get :search, on: :collection
   end
 

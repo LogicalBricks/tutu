@@ -1,5 +1,10 @@
-%p#notice= notice
+%h1
+  = "#{@prestamo.lector.nombre_completo}"
+  
+%h2 
+  = "#{@prestamo.libro.titulo}"
 
-= link_to 'Editar', edit_prestamo_path(@prestamo)
-\|
-= link_to 'Listado', prestamos_path
+.form-actions
+  .btn-group
+    = link_to 'Editar', edit_prestamo_path(@prestamo), class: 'btn'
+    = link_to 'Listado', prestamos_path, class: 'btn'
