@@ -25,7 +25,7 @@ class PrestamosController < ApplicationController
   # GET /prestamos/new.json
   def new
     @prestamo = Prestamo.new
-
+    @prestamo.prestador = Prestador.find(session[:prestador_id]) if session[:prestador_id]
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @prestamo }

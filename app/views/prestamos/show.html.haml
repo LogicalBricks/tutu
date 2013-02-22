@@ -4,6 +4,11 @@
 %h2 
   = "#{@prestamo.libro.titulo}"
 
+- if @prestamo.prestador
+  %h3
+    %b Prestó:
+    = @prestamo.prestador.nombre
+
 .form-actions
   .btn-group
     = link_to 'Editar', edit_prestamo_path(@prestamo), class: 'btn'

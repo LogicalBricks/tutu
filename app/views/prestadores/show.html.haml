@@ -1,9 +1,7 @@
-%p#notice= notice
-
 %p
   %b Nombre:
   = @prestador.nombre
 
-= link_to 'Editar', edit_prestador_path(@prestador)
-\|
-= link_to 'Listado', prestadores_path
+.btn-group
+  = link_to 'Editar', edit_prestador_path(@prestador), class: 'btn'
+  = link_to 'Listado', prestadores_path, class: 'btn'

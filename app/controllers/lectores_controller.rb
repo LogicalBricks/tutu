@@ -87,10 +87,11 @@ class LectoresController < ApplicationController
 
   def upload
     @lector = Lector.find(params[:id])
-    File.open(upload_path, 'wb') do |f|
+    path = upload_path
+    File.open(path, 'wb') do |f|
       f.write request.raw_post
     end
-    @lector.foto = File.open(upload_path)
+    @lector.foto = File.open(path)
     @lector.save
     render :text => "ok"
   end
@@ -106,7 +107,8 @@ class LectoresController < ApplicationController
   private
 
   def upload_path # is used in upload and create
-    File.join(Rails.root, 'tmp', 'photo.jpg')
+    uuid = UUIDTools::UUID.random_create
+    File.join(Rails.root, 'tmp', "#{uuid}.jpg")
   end
 
 end

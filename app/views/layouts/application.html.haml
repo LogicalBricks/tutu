@@ -12,16 +12,28 @@
     = javascript_include_tag 'application' 
     = csrf_meta_tags
   %body
-    .navbar.navbar-fixed-top
+    .navbar.navbar-fixed-top.navbar-inverse
       .navbar-inner
         .container
           %a.btn.btn-navbar{'data-toggle'=>'collapse', 'data-target'=>'.nav-collapse'}
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-            %a.brand{ href: '#'} Tutu
+          %a.brand{ href: '/'} Tutu
           %div.nav-collapse
             = tabs
+            %ul.nav.pull-right
+              %li.dropdown
+                %a#prestador-menu.dropdown-toggle{ 'data-toggle' => 'dropdown', href: '#'} 
+                  ="Prestador"
+                  %span
+                    = "(#{Prestador.find(session[:prestador_id]).nombre})" if session[:prestador_id]
+                  %b.caret
+                %ul.dropdown-menu{'aria-labelledby'=>"prestador-menu", role: 'menu'}
+                  - Prestador.all.each do |p| 
+                    %li 
+                      =link_to p.nombre, activar_prestador_path(p), tabindex: '-1', remote: true
+            
     .container
       - if notice 
         .alert.alert-success

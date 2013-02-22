@@ -1,3 +1,8 @@
+#successful
+  .alert.alert-success
+    %button.close{'data-dismiss'=>'alert'}×
+    %span La foto se ha subido correctamente 
+
 #webcam
 %script{type: 'text/javascript' }
   :plain
@@ -12,8 +17,7 @@
 
     function upload_complete(msg) {
       if (msg == 'ok') {
-        //$('#new_photo').show();
-        //$('#photo_description').focus();
+        $('#successful').show();
       } else {
         alert('An error occured');
         webcam.reset();
@@ -28,5 +32,11 @@
     webcam.set_hook('onComplete', 'upload_complete');
     $('#webcam').html(webcam.get_html(320, 240));
 
-%input{type: 'button',  value:'Take picture', onclick:'webcam.snap();'}
-%input{type: 'button',  value:'Configure', onclick:'webcam.configure();'}
+.btn-group
+  %input{type: 'button',  value:'Take picture', onclick:'webcam.snap();', class: 'btn btn-primary'}
+  %input{type: 'button',  value:'Configure', onclick:'webcam.configure();', class: 'btn'}
+
+.form-actions
+  .btn-group
+    = link_to 'Mostrar', @lector, class: 'btn'
+    = link_to 'Listado', lectores_path, class: 'btn'  

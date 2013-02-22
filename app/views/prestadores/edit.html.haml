@@ -2,6 +2,6 @@
 
 = render 'form'
 
-= link_to 'Mostrar', @prestador
-\|
-= link_to 'Listado', prestadores_path
+.btn-group
+  = link_to 'Mostrar', @prestador, class: 'btn'
+  = link_to 'Listado', prestadores_path, class: 'btn'

@@ -44,7 +44,7 @@ class PrestadoresController < ApplicationController
 
     respond_to do |format|
       if @prestador.save
-        format.html { redirect_to @prestador, notice: 'Prestador was successfully created.' }
+        format.html { redirect_to @prestador, notice: 'Prestador fue guardado correctamente.' }
         format.json { render json: @prestador, status: :created, location: @prestador }
       else
         format.html { render action: "new" }
@@ -60,7 +60,7 @@ class PrestadoresController < ApplicationController
 
     respond_to do |format|
       if @prestador.update_attributes(params[:prestador])
-        format.html { redirect_to @prestador, notice: 'Prestador was successfully updated.' }
+        format.html { redirect_to @prestador, notice: 'Prestador fue guardado correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -80,4 +80,20 @@ class PrestadoresController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  def activar
+    @prestador = Prestador.find(params[:id])
+    if @prestador
+      session[:prestador_id] = @prestador.id
+    end
+  end
+
+  def search
+    @prestadores = Prestador.order('nombre').
+      finder(params[:q])#.page(params[:page]).per(params[:per])
+    respond_to do |format|
+      format.json { render json: @prestadores.to_json}
+    end
+  end
+
 end

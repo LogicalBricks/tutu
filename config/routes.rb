@@ -1,5 +1,8 @@
 Tutu::Application.routes.draw do
-  resources :prestadores
+  resources :prestadores do
+    get :activar, on: :member
+    get :search, on: :collection
+  end
 
   resources :prestamos
 

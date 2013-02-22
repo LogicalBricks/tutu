@@ -12,6 +12,12 @@
       = f.hidden_field :lector_id, class: 'select2 ajax span2', data: { source: search_lectores_path }
       = @prestamo.lector.nombre_completo if @prestamo.libro
   .control-group
+    = f.label :prestador_id, 'Prestador', class: 'control-label'
+    .controls
+      = f.hidden_field :prestador_id, class: 'select2 ajax span2', data: { source: search_prestadores_path }
+      = @prestamo.prestador.nombre if @prestamo.prestador
+
+  .control-group
     = f.label :fecha_prestamo,  class: 'control-label'
     .controls
       = f.text_field :fecha_prestamo
