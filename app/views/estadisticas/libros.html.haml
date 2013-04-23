@@ -1,0 +1,25 @@
+%h1 Libros
+.row-fluid
+  .span6
+    %h2 Total
+    #libros_frecuentes_chart{ data: { libros: Libro.mas_prestados_grafica('', 10).to_json }}
+  .span6
+    %h2 Libros
+    #libros_frecuentes_libros_chart{ data: { libros: Libro.mas_prestados_grafica('libros',10).to_json }}
+  .span6
+    %h2 Juegos    
+    #libros_frecuentes_juegos_chart{ data: { libros: Libro.mas_prestados_grafica('juegos', 10).to_json }}
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Titulo 
+      %th Tipo
+      %th Total
+
+  %tbody
+    - @libros.each do |l|
+      %tr
+        %td= link_to l.titulo, libro_path(l)
+        %td= l.tipo ? "Juego" : "Libro"
+        %td= l.prestados

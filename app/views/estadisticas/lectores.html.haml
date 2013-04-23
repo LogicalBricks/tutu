@@ -1,0 +1,29 @@
+%h1 Lectores
+.row
+  .span-6
+    %h2 Total
+    #lectores_frecuentes_chart{ data: { lectores: Lector.mas_prestamos_grafica('', 10).to_json }}
+  .span-6
+    %h2 Libros
+    #lectores_frecuentes_libros_chart{ data: { lectores: Lector.mas_prestamos_grafica('libros',10).to_json }}
+  .span-6
+    %h2 Juegos    
+    #lectores_frecuentes_juegos_chart{ data: { lectores: Lector.mas_prestamos_grafica('juegos', 10).to_json }}
+
+%table.table.table-striped
+  %thead
+    %tr
+      %th Nombre 
+      %th Grado/Grupo 
+      %th Libros
+      %th Juegos
+      %th Total
+
+  %tbody
+    - @lectores.each do |l|
+      %tr
+        %td= link_to l.nombre_completo, libro_path(l)
+        %td= "#{l.grado} #{l.grupo}" 
+        %td= l.libros_de_texto.count
+        %td= l.juegos.count
+        %td= l.libros.count

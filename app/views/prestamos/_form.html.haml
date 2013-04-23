@@ -4,7 +4,7 @@
   .control-group
     = f.label :libro_id, 'Libro', class: 'control-label'
     .controls
-      = f.hidden_field :libro_id, class: 'select2 ajax span2', data: { source: search_libros_path }
+      = f.hidden_field :libro_id, class: 'select2 multi ajax span5', data: { source: search_libros_path, multiple: true }, multiple: true
       = @prestamo.libro.titulo if @prestamo.libro
   .control-group
     = f.label :lector_id, 'Lector', class: 'control-label'
@@ -26,6 +26,11 @@
     = f.label :fecha_entrega,  class: 'control-label'
     .controls
       = f.text_field :fecha_entrega
+
+  .control-group
+    = f.label :perdida,  class: 'control-label'
+    .controls
+      = f.text_field :perdida
 
   .form-actions
     = f.submit class: 'btn btn-primary'

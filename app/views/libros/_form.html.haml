@@ -18,6 +18,10 @@
     .controls
       = f.text_field :isbn
   .control-group
+    = f.label :tipo, "¿Es juego?", class: 'control-label'
+    .controls
+      = f.check_box :tipo
+  .control-group
     = f.label :descripcion, class: 'control-label'
     .controls
       = f.text_area :descripcion

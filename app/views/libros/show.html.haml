@@ -1,20 +1,23 @@
-%h1
-  = @libro.titulo
+.row-fluid
+  .span6
+    %h1
+      = @libro.titulo
 
-%h2
-  = @libro.autor
+    %h2
+      = @libro.autor
 
-%p
-  %b Editorial:
-  = @libro.editorial
+    %p
+      %b Editorial:
+      = @libro.editorial
 
-%p
-  %b Isbn:
-  = @libro.isbn
+    %p
+      %b Isbn:
+      = @libro.isbn
 
-%h1
-  = @libro.cantidad
-
+    %h1
+      = @libro.cantidad
+  .span6
+    = image_tag @libro.qr_url, class: 'img-polaroid' 
 .form-actions
   .btn-group
     = link_to 'Editar', edit_libro_path(@libro), class: 'btn'

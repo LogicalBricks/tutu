@@ -1,12 +1,4 @@
-%h1
-  = "#{@lector.nombre_completo} - (#{@lector.grado} #{@lector.grupo})"
-
-- if @lector.foto
-  = image_tag @lector.foto_url, class: 'img-polaroid' 
-
-
-%h2
-  = "#{edad(@lector)} años"
+= render 'credencial', l: @lector
 
 .form-actions
   .btn-group

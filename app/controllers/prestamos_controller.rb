@@ -1,3 +1,4 @@
+# encoding: utf-8
 class PrestamosController < ApplicationController
   # GET /prestamos
   # GET /prestamos.json
@@ -44,7 +45,7 @@ class PrestamosController < ApplicationController
 
     respond_to do |format|
       if @prestamo.save
-        format.html { redirect_to @prestamo, notice: 'Prestamo was successfully created.' }
+        format.html { redirect_to prestamos_path, notice: 'Prestamo se guardó correctamente.' }
         format.json { render json: @prestamo, status: :created, location: @prestamo }
       else
         format.html { render action: "new" }
@@ -60,7 +61,7 @@ class PrestamosController < ApplicationController
 
     respond_to do |format|
       if @prestamo.update_attributes(params[:prestamo])
-        format.html { redirect_to @prestamo, notice: 'Prestamo was successfully updated.' }
+        format.html { redirect_to @prestamo, notice: 'Prestamo se modificó correctamente.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
@@ -81,4 +82,8 @@ class PrestamosController < ApplicationController
     end
   end
 
+
+  def entregar
+    @prestamo = Prestamo.find(params[:id])
+  end
 end

@@ -1,0 +1,37 @@
+%h1 Libros Prestados 
+.row
+  .span-4
+    %h2
+      Total:
+      = @total_prestados
+  .span-4
+    %h2
+      En préstamo:
+      = @total_en_prestamo
+%h2
+  = link_to 'Lectores', lectores_estadisticas_path
+.row
+  .span-6
+    %h2 Total
+    #lectores_frecuentes_chart{ data: { lectores: Lector.mas_prestamos_grafica('', 10).to_json }}
+  .span-6
+    %h2 Libros
+    #lectores_frecuentes_libros_chart{ data: { lectores: Lector.mas_prestamos_grafica('libros',10).to_json }}
+  .span-6
+    %h2 Juegos    
+    #lectores_frecuentes_juegos_chart{ data: { lectores: Lector.mas_prestamos_grafica('juegos', 10).to_json }}
+
+%h2
+  = link_to 'Libros', libros_estadisticas_path
+.row
+  .span-6
+    %h2 Total
+    #libros_frecuentes_chart{ data: { libros: Libro.mas_prestados_grafica('', 10).to_json }}
+  .span-6
+    %h2 Libros
+    #libros_frecuentes_libros_chart{ data: { libros: Libro.mas_prestados_grafica('libros',10).to_json }}
+  .span-6
+    %h2 Juegos    
+    #libros_frecuentes_juegos_chart{ data: { libros: Libro.mas_prestados_grafica('juegos', 10).to_json }}
+
+

@@ -1,3 +1,4 @@
+# encoding: utf-8
 # Tabulous gives you an easy way to set up tabs for your Rails application.
 #
 #   1. Configure this file.
@@ -61,6 +62,8 @@ Tabulous.setup do |config|
       [    :libros_tab      ,    'Libros'        ,    libros_path      ,    true        ,    true        ],
       [    :prestamos_tab      ,    'Prestamos'        ,    prestamos_path      ,    true        ,    true        ],
       [    :prestadores_tab      ,    'Prestadores'        ,    prestadores_path      ,    true        ,    true        ],
+
+      [    :estadisticas_tab      ,    'Estadísticas'        ,    estadisticas_path      ,    true        ,    true        ],
       #--------------------------------------------------------------------------------------------------#
       #    TAB NAME         |    DISPLAY TEXT    |    PATH             |    VISIBLE?    |    ENABLED?    #
       #--------------------------------------------------------------------------------------------------#
@@ -91,6 +94,7 @@ Tabulous.setup do |config|
       [    :libros       ,    :all_actions    ,    :libros_tab      ],
       [    :prestamos    ,    :all_actions    ,    :prestamos_tab  ],
       [    :prestadores ,    :all_actions    ,    :prestadores_tab  ],
+      [    :estadisticas,    :all_actions    ,    :estadisticas_tab  ],
       #-------------------------------------------------------------#
       #    CONTROLLER    |    ACTION          |    TAB              #
       #-------------------------------------------------------------#

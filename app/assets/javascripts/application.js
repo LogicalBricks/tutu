@@ -23,4 +23,6 @@
 //= require libros
 //= require prestamos
 //= require webcam
-
+//= require raphael
+//= require morris 
+//= require estadisticas

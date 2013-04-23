@@ -1,10 +1,17 @@
 Tutu::Application.routes.draw do
+  resources :estadisticas do
+    get :lectores, on: :collection
+    get :libros, on: :collection
+  end
+
   resources :prestadores do
     get :activar, on: :member
     get :search, on: :collection
   end
 
-  resources :prestamos
+  resources :prestamos do
+    get :entregar, on: :member
+  end
 
   resources :lectores do
     get :foto, on: :member

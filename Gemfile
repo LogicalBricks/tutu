@@ -63,9 +63,9 @@ gem 'rmagick'
 
 gem 'draper'
 
-gem 'barby'
-
 gem 'uuidtools'
+
+gem 'rqrcode-with-patches'
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 #

@@ -1,0 +1,22 @@
+.row-fluid
+  .span8
+    .row-fluid
+      .span12
+        %h2 USAER 48
+        %span Sala de Actividades Lúdicas
+    .row-fluid
+      .span8
+        %h1= l.nombre_completo
+        %h2
+          Grado: 
+          %strong= l.grado
+          Grupo: 
+          %strong= l.grupo
+        %h2
+          = "#{edad(@lector)} años"
+      .span4
+        = image_tag l.qr_url, class: 'img-polaroid'
+  .span4
+    - if @lector.foto
+      = image_tag @lector.foto_url, class: 'img-polaroid'
+
