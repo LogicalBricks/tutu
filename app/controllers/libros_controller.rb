@@ -1,3 +1,4 @@
+# encoding: utf-8
 class LibrosController < ApplicationController
   # GET /libros
   # GET /libros.json
@@ -86,6 +87,15 @@ class LibrosController < ApplicationController
       finder(params[:q])#.page(params[:page]).per(params[:per])
     respond_to do |format|
       format.json { render json: @libros.to_json}
+    end
+  end
+
+  def etiquetas 
+    if params[:libros_ids].blank? or params[:libros_ids].empty?
+      redirect_to( libros_path, alert: 'No ha seleccionado ningún Libro' )
+    else
+      @libros = Libro.find(params[:libros_ids])
+      @una_etiqueta = params[:una_por_libro] ? true : false
     end
   end
 

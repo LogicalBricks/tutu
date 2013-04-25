@@ -70,7 +70,7 @@ class Libro < ActiveRecord::Base
 private 
   def generar_codigo
       self.codigo = "U48M%05d" % self.id  
-      temp_qr = RQRCode::QRCode.new(codigo.to_s, size: 4, level: :h).as_png
+      temp_qr = RQRCode::QRCode.new(codigo.to_s, size: 2, level: :l).as_png
       temp_file_name = File.join(Rails.root, 'tmp', (0...8).map{(65+rand(26)).chr}.join )
       temp_file = temp_qr.save(temp_file_name)
       self.qr = File.open(temp_file_name)

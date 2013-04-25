@@ -5,3 +5,13 @@
 {
   display: none;
 }
+
+#webcam {
+  z-index: 0;
+  float: left;
+  position: relative
+}
+
+.clear {
+  clear: both;
+}

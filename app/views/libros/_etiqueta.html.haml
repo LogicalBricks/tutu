@@ -1,0 +1,15 @@
+.etiqueta
+  .qr
+    = image_tag l.qr_url
+  .datos
+    %p
+      %strong= l.titulo 
+    %p
+      %strong Autor
+      = l.autor
+    - unless l.tipo
+      %p
+        %strong ISBN
+        = l.isbn
+
+

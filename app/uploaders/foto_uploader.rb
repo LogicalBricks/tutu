@@ -36,9 +36,6 @@ class FotoUploader < CarrierWave::Uploader::Base
   # end
 
   # Create different versions of your uploaded files:
-  version :credencial do
-     process :scale => [50, 50]
-  end
 
   # Add a white list of extensions which are allowed to be uploaded.
   # For images you might use something like this:

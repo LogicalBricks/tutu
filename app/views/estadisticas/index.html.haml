@@ -1,13 +1,21 @@
 %h1 Libros Prestados 
-.row
-  .span-4
+.row-fluid
+  .span-3
     %h2
       Total:
       = @total_prestados
-  .span-4
+  .span-3
     %h2
       En préstamo:
       = @total_en_prestamo
+  .span-3
+    %h2
+      Libros en prestamo:  
+      = @total_libros_prestados
+  .span-3
+    %h2
+      Juegos en prestamo:  
+      = @total_juegos_prestados
 %h2
   = link_to 'Lectores', lectores_estadisticas_path
 .row

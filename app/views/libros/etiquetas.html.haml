@@ -1,0 +1,4 @@
+- @libros.each do |l|
+  - (@una_etiqueta ? 1 : l.cantidad) .times do 
+    = render 'etiqueta', l: l
+

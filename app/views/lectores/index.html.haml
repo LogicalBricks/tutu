@@ -1,29 +1,35 @@
-%h1 Lectores
-
-%table#lectores.table.table-stripped
-  %thead
-    %tr
-      %th Nombre
-      %th Primer apellido
-      %th Segundo apellido
-      %th Grado
-      %th Grupo
-      %th
-
-  %tbody
-    - @lectores.each do |lector|
+= form_tag action: :credenciales do
+  .row-fluid
+    .span6
+      %h1 Lectores
+    .span6
+      = submit_tag "Generar Credenciales", class: 'btn btn-warning'
+  %table#lectores.table.table-stripped
+    %thead
       %tr
-        %td= lector.nombre
-        %td= lector.primer_apellido
-        %td= lector.segundo_apellido
-        %td= lector.grado
-        %td= lector.grupo
-        %td
-          .btn-group
-            = link_to 'Mostrar', lector, class: 'btn'
-            = link_to 'Editar', edit_lector_path(lector), class: 'btn'
-            = link_to 'Eliminar', lector, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger'
-            = link_to 'Foto', foto_lector_path(lector), class: 'btn'
-%br
+        %th= check_box_tag "lectores_select_all"
+        %th Nombre
+        %th Primer apellido
+        %th Segundo apellido
+        %th Grado
+        %th Grupo
+        %th
+
+    %tbody
+      - @lectores.each do |lector|
+        %tr
+          %td= check_box_tag 'lectores_ids[]', lector.id
+          %td= lector.nombre
+          %td= lector.primer_apellido
+          %td= lector.segundo_apellido
+          %td= lector.grado
+          %td= lector.grupo
+          %td
+            .btn-group
+              = link_to 'Mostrar', lector, class: 'btn'
+              = link_to 'Editar', edit_lector_path(lector), class: 'btn'
+              = link_to 'Eliminar', lector, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger'
+              = link_to 'Foto', foto_lector_path(lector), class: 'btn'
+  %br
 
 = link_to "Nuevo Lector", new_lector_path, class: 'btn btn-primary'

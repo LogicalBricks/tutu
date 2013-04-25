@@ -15,12 +15,15 @@ Tutu::Application.routes.draw do
 
   resources :lectores do
     get :foto, on: :member
+    get :foto_url, on: :member
     post :upload, on: :member
     get :search, on: :collection
+    post :credenciales, on: :collection
   end
 
   resources :libros do
     get :search, on: :collection
+    post :etiquetas, on: :collection
   end
 
   devise_for :usuarios

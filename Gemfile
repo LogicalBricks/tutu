@@ -36,6 +36,11 @@ gem "select2-rails"
 
 gem 'anjlab-bootstrap-rails', require: 'bootstrap-rails', github: 'anjlab/bootstrap-rails'
 
+group :development do
+  gem 'better_errors'
+  gem 'binding_of_caller' 
+end
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'

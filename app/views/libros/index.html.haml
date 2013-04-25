@@ -1,25 +1,36 @@
-%h1 Libros
+= form_tag action: :etiquetas do
+  .row-fluid
+    .span6
+      %h1 Libros
+    .span6
+      .span6  
+        = check_box_tag :una_por_libro, class: 'left'
+        = label_tag :una_por_libro, "¿Una etiqueta por libro?"
+      .span6
+        = submit_tag "Generar Etiquetas", class: 'btn btn-warning' 
 
-%table#libros.table.table-stripped
-  %thead
-    %tr
-      %th Titulo
-      %th Autor
-      %th Editorial
-      %th Isbn
-      %th
-  %tbody
-    - @libros.each do |libro|
+  %table#libros.table.table-stripped
+    %thead
       %tr
-        %td= libro.titulo
-        %td= libro.autor
-        %td= libro.editorial
-        %td= libro.isbn
-        %td
-          .btn-group
-            = link_to 'Mostrar', libro, class: 'btn'
-            = link_to 'Editar', edit_libro_path(libro), class: 'btn'
-            = link_to 'Eliminar', libro, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger'
+        %th= check_box_tag "libros_select_all"
+        %th Titulo
+        %th Autor
+        %th Editorial
+        %th Isbn
+        %th
+    %tbody
+      - @libros.each do |libro|
+        %tr
+          %td= check_box_tag 'libros_ids[]', libro.id
+          %td= libro.titulo
+          %td= libro.autor
+          %td= libro.editorial
+          %td= libro.isbn
+          %td
+            .btn-group
+              = link_to 'Mostrar', libro, class: 'btn'
+              = link_to 'Editar', edit_libro_path(libro), class: 'btn'
+              = link_to 'Eliminar', libro, method: :delete, data: { confirm: '¿Estás seguro?' }, class: 'btn btn-danger'
 
 .form-actions
   = link_to "Nuevo Libro", new_libro_path, class: 'btn btn-primary'

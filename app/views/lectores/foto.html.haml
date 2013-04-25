@@ -3,7 +3,9 @@
     %button.close{'data-dismiss'=>'alert'}×
     %span La foto se ha subido correctamente 
 
-#webcam
+.tomar-foto
+  .guia-foto
+  #webcam
 %script{type: 'text/javascript' }
   :plain
     function onload_complete(msg) {
@@ -18,6 +20,9 @@
     function upload_complete(msg) {
       if (msg == 'ok') {
         $('#successful').show();
+        $.get('#{foto_url_lector_path(@lector)}', function(data) { 
+            $('#credencial .foto img').attr('src', data);
+          });
       } else {
         alert('An error occured');
         webcam.reset();
@@ -32,8 +37,14 @@
     webcam.set_hook('onComplete', 'upload_complete');
     $('#webcam').html(webcam.get_html(320, 240));
 
+#credencial
+  .datos
+    Así se verá en la credencial
+  .foto
+    = image_tag @lector.foto_url
+.clear
 .btn-group
-  %input{type: 'button',  value:'Take picture', onclick:'webcam.snap();', class: 'btn btn-primary'}
+  %input{type: 'button',  value:'Tomar Foto', onclick:'webcam.snap();', class: 'btn btn-primary'}
   %input{type: 'button',  value:'Configure', onclick:'webcam.configure();', class: 'btn'}
 
 .form-actions

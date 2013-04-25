@@ -1,22 +1,29 @@
-.row-fluid
-  .span8
-    .row-fluid
-      .span12
-        %h2 USAER 48
+.credencial
+  .credencial-frente
+    .datos
+      .escuela
+        %p 
+          %strong USAER 48
         %span Sala de Actividades Lúdicas
-    .row-fluid
-      .span8
-        %h1= l.nombre_completo
-        %h2
-          Grado: 
-          %strong= l.grado
-          Grupo: 
-          %strong= l.grupo
-        %h2
-          = "#{edad(@lector)} años"
-      .span4
-        = image_tag l.qr_url, class: 'img-polaroid'
-  .span4
-    - if @lector.foto
-      = image_tag @lector.foto_url, class: 'img-polaroid'
+      .datos-alumno
+        .nombre-alumno
+          %p
+            %strong Alumno:
+            = l.nombre_completo
+          %p
+            %strong Grado/Grupo: 
+            = "#{l.grado} #{l.grupo}"
+          %p
+            %strong Edad:
+            = "#{edad(l)} años"
+    .foto
+      - if l.foto
+        = image_tag l.foto_url
+  .credencial-atras
+    .qr
+      = image_tag l.qr_url
+    .firmas
+      .firma 
+        %p LEE Laura Judith Bravo Sumano 
+
 

@@ -1,3 +1,4 @@
+# encoding: utf-8
 class LectoresController < ApplicationController
   # GET /lectores
   # GET /lectores.json
@@ -85,6 +86,11 @@ class LectoresController < ApplicationController
     @lector = Lector.find(params[:id])
   end
 
+  def foto_url
+    @lector = Lector.find(params[:id])
+    render text: @lector.foto_url
+  end
+
   def upload
     @lector = Lector.find(params[:id])
     path = upload_path
@@ -104,7 +110,15 @@ class LectoresController < ApplicationController
     end
   end
 
-  private
+  def credenciales
+    if params[:lectores_ids].blank? or params[:lectores_ids].empty?
+      redirect_to( lectores_path, alert: 'No ha seleccionado ningún lector' )
+    else
+      @lectores = Lector.find(params[:lectores_ids])
+    end
+  end
+
+private
 
   def upload_path # is used in upload and create
     uuid = UUIDTools::UUID.random_create
